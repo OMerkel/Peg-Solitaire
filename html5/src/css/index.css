@@ -60,3 +60,37 @@ figure.diagram figcaption {
   border-radius: 0 0 8px 8px;
   margin: 0px;
 }
+
+figure.author {
+  width: 30%;
+  max-width: 320px;
+  border: 1px solid #cccccc;
+  margin: 0 2px 0 2px;
+  padding: 2px 12px 2px 2px;
+  border-radius: 11px;
+}
+
+figure.author img {
+  width: 100%;
+  border: 1px solid #cccccc;
+  padding: 4px;
+  border-radius: 7px 7px 0 0;
+  margin: 0px;
+}
+
+figure.author embed {
+  width: 100%;
+  border: 1px solid #cccccc;
+  padding: 4px;
+  border-radius: 7px 7px 0 0;
+  margin: 0px;
+}
+
+figure.author figcaption {
+  background-color: #666; color: #fff;
+  font-style: italic;
+  width: 100%;
+  padding: 5px;
+  border-radius: 0 0 8px 8px;
+  margin: 0px;
+}
