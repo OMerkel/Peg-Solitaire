@@ -118,10 +118,10 @@ Hmi.prototype.redraw = function(board) {
     var isVisible = board[Common.PEGS][pegId];
     peg.setAttributeNS('http://www.w3.org/1999/xlink',
       'href', isVisible ? ( pegId == board[Common.SELECTED] ?
-      '#peg_selected' : '#peg' ) : '#empty' );
+      '#peg_selected' : '#peg' ) : '#hidden' );
     if (pegId == selected) {
-      var transform = peg.getAttributeNS('', 'transform');
-      this.layerHints.setAttributeNS('', 'transform', transform);
+      var transform = peg.getAttribute('transform');
+      this.layerHints.setAttribute('transform', transform);
     }
   }
 
