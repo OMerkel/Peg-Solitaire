@@ -152,6 +152,12 @@ Hmi.prototype.redraw = function(board) {
 
 };
 
+if ( !String.prototype.startsWith ) {
+  String.prototype.startsWith = function(myString) {
+    return this.slice(0, myString.length) === myString;
+  }
+}
+
 Hmi.prototype.myChoice = function( e ) {
   if (typeof e.currentTarget == 'object') {
     if (e.currentTarget.id.startsWith('peg')) {
