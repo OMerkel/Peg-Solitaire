@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# v0.2
+# v0.1
 css/index.css
 img/icons/cc_by_nc_sa.png
 img/icons/favicon.ico
@@ -16,14 +16,6 @@ img/icons/tri_peg_sol-128.png
 img/icons/tri_peg_sol-256.png
 img/board.svg
 img/jump.svg
-img/jump0.svg
-img/jump1.svg
-img/jump2.svg
-img/jump3.svg
-img/jump4.svg
-img/jump5.svg
-img/jump6.svg
-img/jump7.svg
 img/oliver-bastorf-2014.jpg
 js/board.js
 js/common.js

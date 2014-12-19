@@ -46,7 +46,7 @@ If not otherwise stated all graphics (independent of its format) are licensed un
     http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US
     Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
 " />
-  <title>Peg Solitaire</title>
+  <title>Triangular Peg Solitaire</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="apple-touch-icon" href="img/icons/tri_peg_sol-128.png" />
@@ -62,7 +62,7 @@ If not otherwise stated all graphics (independent of its format) are licensed un
 <body>
 <div data-role='page' data-theme='b' id='game-page' class='mybackground'>
   <div data-role='header' data-position='fixed'>
-    <center id='myheader'>Peg Solitaire</center>
+    <center id='myheader'>Triangular Peg Solitaire</center>
     <a href='#left-panel' id='customMenu' class='customMenu'
       data-icon='custom' data-iconpos='notext'>Menu</a>
   </div><!-- /header -->
@@ -72,7 +72,12 @@ If not otherwise stated all graphics (independent of its format) are licensed un
         <p>This HTML5 application depends on enabled Javascript capabilities in your browser.</p>
         <p>Please consider enabling Javascript if disabled through settings.</p>
       </noscript>
-      <div id='pegboard' class='board'></div>
+      <center>
+        <embed name="board" id="board"
+          type="image/svg+xml"
+          src="img/board.svg"
+          width="520" height="520" border="1" />
+      </center>
     </div>
   </div><!-- /content -->
   <div data-role='panel' id='left-panel' data-position='left'
@@ -84,14 +89,11 @@ If not otherwise stated all graphics (independent of its format) are licensed un
       <li data-icon='star' ><a id='new'>New</a></li>
       <li data-icon='action' ><a href='#rules-page' data-rel='page'
         data-transition='pop'>Rules&#8230;</a></li>
-      <li data-icon='grid'><a href='#options-menu' data-rel='page'
-        data-transition='slideup'>Options&#8230;</a></li>
       <li data-icon='info' ><a href='#about-page' data-rel='page'
         data-transition='pop'>About&#8230;</a></li>
     </ul>
   </div><!-- /panel -->
 </div><!-- /page -->
-
 <div data-role='page' data-theme='b' id='rules-page'>
   <div data-role='header'>
     <a href='#' data-rel='back' id='customBackRules'
@@ -105,7 +107,7 @@ If not otherwise stated all graphics (independent of its format) are licensed un
       <figcaption>Jump with a selected peg over an adjacent peg
         removing it.</figcaption>
     </figure>
-    <p>The mind bending puzzle of <em>Peg Solitaire</em> is 
+    <p>The mind bending puzzle of <em>Triangular Peg Solitaire</em> is 
       well-known using different board shapes and different amount
       of holes for placing the pegs. The common mechanics is that
       a selected peg is capable to jump any directly adjacent single
@@ -114,28 +116,28 @@ If not otherwise stated all graphics (independent of its format) are licensed un
       move just on the first free field behind the peg that gets
       removed then.</p>
     <br clear='all' />
-    <p>Due to the different shapes of the board
-      in this implementation such straight jumps are possible in either
-      two or three directions (either four or six directions if counting
-      forward and backward jumps separately).</p>
-    <p>In <em>Peg Solitaire</em> you select one of the pegs first.
-      This peg is going to be removed building a starting position.</p>
+    <p>Due to the shape of the board
+      in this implementation such straight jumps are possible in
+      three directions (six directions if counting forward and backward
+      jumps separately). Our board has 15 peg positions in whole here.</p>
+    <p>In <em>Triangular Peg Solitaire</em> you select one of the pegs first.
+      This peg is going to be removed building a starting position. Due to
+      symmetry of the board you can distinguish between four basically different
+      starting positions.</p>
     <p>By jumping the total number of pegs is reduced then.
       <b>All starting positions</b> of a 15 hole triangular board shape
       <b>do definitively allow</b> to finally end up with just
-      one peg remaining on optimal strategy. Following that
-      scheme other board shapes do have some unsolvable starting
-      positions, too. This class of challenges are referred to as
-      <em>single vacancy to single survivor challenges</em>.</p>
+      one peg remaining on optimal strategy. This class of challenges are
+      referred to as <em>single vacancy to single survivor challenges</em>.</p>
     <p>If the single vacancy position matches the position of the survivor
       these challenges are called a <em>complement challenge</em>. As a tough
-      task you might find out <b>which board shapes and vacancies do not
-      allow</b> a complement challenge.</p>
-    <p>Each jump reduces the total amount of remaining pegs by one.
-      Nevertheless a consecutive series of jumps with same peg could be
-      performed depending on the board situation obviously. Such chained
-      jumps could be seen as a single move. The question arises to find
-      the best solutions with minimum amount of moves then.</p>
+      task you might find out <b>which vacancies do not allow</b> a complement
+      challenge.</p>
+    <p>Starting with 14 pegs means that 13 jumps result in a single survivor.
+      Nevertheless consecutive jumps with same peg could be performed depending on
+      the board situation obviously. Such chained jumps could be seen as a
+      single move. The question arises to find the best solutions with
+      minimum amount of moves then.</p>
     <p>Feel free to find all possible solutions for these different kind of
       challenges.</p>
     <a href='#' data-role='button' data-icon='back'
@@ -143,49 +145,12 @@ If not otherwise stated all graphics (independent of its format) are licensed un
   </div><!-- /content -->
 </div><!-- /page -->
 
-<div data-role='page' data-theme='b' id='options-menu'>
-  <div data-role='header'>
-    <h1><small>Options</small></h1>
-    <a href='#' data-rel='back' id='customBackOptions'
-      class='customBack ui-btn ui-icon-custom ui-btn-icon-left ui-btn-icon-notext ui-corner-all'>Close</a>
-  </div><!-- /header -->
-  <div data-role='content'>
-    <br />
-    <form>
-      <fieldset data-role='controlgroup'>
-        <legend>Board Shape</legend>
-        <input name='boardShape' id='boardTriangular5'
-          checked='checked' type='radio' />
-        <label for='boardTriangular5'>
-          Triangular 5
-        </label>
-        <input name='boardShape' id='boardTriangular6'
-          type='radio' />
-        <label for='boardTriangular6'>
-          Triangular 6
-        </label>
-        <input name='boardShape' id='boardEnglish'
-          type='radio' />
-        <label for='boardEnglish'>
-          English Solitaire
-        </label>
-        <input name='boardShape' id='boardFrench'
-          type='radio' />
-        <label for='boardFrench'>
-          French Solitaire
-        </label>
-      </fieldset>
-    </form>
-    <a href='#' data-role='button' data-icon='check'
-      data-rel='back' data-theme='c'>Ok</a>
-  </div><!-- /content -->
-</div><!-- /page -->
 
 <div data-role='page' data-theme='b' id='about-page'>
   <div data-role='header'>
     <a href='#' data-rel='back' id='customBackAbout'
       class='customBack ui-btn ui-icon-custom ui-btn-icon-right ui-btn-icon-notext ui-corner-all'>Back</a>
-    <h4>About Peg Solitaire</h4>
+    <h4>About Triangular Peg Solitaire</h4>
   </div><!-- /header -->
   <div role='main' class='ui-content'>
     <figure class='author' style='float: right;'>
@@ -260,7 +225,7 @@ If not otherwise stated all graphics (independent of its format) are licensed un
     </div><!-- collapsible -->
     <div data-role="collapsible">
       <h4>Third Party Code Licenses</h4>
-      <p>This <b>Peg Solitaire</b> implementation uses unmodified
+      <p>This <b>Triangular Peg Solitaire</b> implementation uses unmodified
       independent code libraries provided by <em>third parties</em>.
       Since their licenses might vary the corresponding information is
       <em>externally linked</em> below. Thus <em>these external links</em>

@@ -1,5 +1,5 @@
 {
-  "version": "0.2",
+  "version": "0.1",
   "name": "PegSolitaire",
   "description": "Triangular Peg Solitaire",
   "launch_path": "/Peg-Solitaire/html5/src/index.html",

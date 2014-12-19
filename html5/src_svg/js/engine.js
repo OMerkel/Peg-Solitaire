@@ -51,12 +51,9 @@ function processHmiRequest( eventReceived ) {
       break;
     case 'start':
     case 'restart':
-      session.setup(data.shape);
+      session.setup();
       break;
     case 'sync':
-      if ( data.shape != session.board.shape ) {
-        session.setup(data.shape);
-      }
       break;
     default:
       console.log('Hmi used unknown request');
@@ -117,6 +114,6 @@ Session.prototype.move = function ( data ) {
   }
 };
 
-Session.prototype.setup = function (shape) {
-  this.board.setup(Number(shape));
+Session.prototype.setup = function () {
+  this.board.setup();
 };

@@ -9,18 +9,16 @@ importScripts('common.js');
 
 function Board() {}
 
-Board.prototype.setup = function (shape) {
-  this.shape = shape;
+Board.prototype.setup = function () {
   this.peg = {};
-  for(var i=0; i<Common.PEG[shape].ID.length; ++i) {
-    this.peg[Common.PEG[shape].ID[i]] = true;
+  for(var i=0; i<Common.PEGSTOTAL; ++i) {
+    this.peg[Common.PEGID[i]] = true;
   }
   this.selected = null;
 }
 
 Board.prototype.getState = function () {
   var result = {};
-  result[Common.SHAPE] = this.shape;
   result[Common.PEGS] = this.peg;
   result[Common.SELECTED] = this.selected;
   return result;
@@ -28,11 +26,11 @@ Board.prototype.getState = function () {
 
 Board.prototype.select = function ( pegId ) {
   var selectable = false;
-  for(var i=0; i<Common.PEG[this.shape].DIRECTION.length && !selectable; ++i) {
-    var direction = Common.PEG[this.shape].DIRECTION[i];
+  for(var i=0; i<Common.DIRECTION.length && !selectable; ++i) {
+    var direction = Common.DIRECTION[i];
     var moveOver = pegId + direction;
     var moveOnto = moveOver + direction;
-    selectable = -1 != Common.inArray( moveOnto, Common.PEG[this.shape].ID ) &&
+    selectable = -1 != Common.inArray( moveOnto, Common.PEGID ) &&
       this.peg[moveOver] && !this.peg[moveOnto];
   }
   this.selected = selectable ? pegId : null;
