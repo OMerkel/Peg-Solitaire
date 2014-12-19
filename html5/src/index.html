@@ -114,30 +114,42 @@ If not otherwise stated all graphics (independent of its format) are licensed un
       move just on the first free field behind the peg that gets
       removed then.</p>
     <br clear='all' />
+    <p>Supported board shapes include</p>
+    <ul>
+    <li>triangular 15 peg positions (also called triangular 5),</li>
+    <li>triangular 21 peg positions (also called triangular 6),</li>
+    <li>English board with orthogonal pattern of 33 peg positions, and</li>
+    <li>French board with orthogonal pattern of 37 peg positions.</li>
+    </ul>
     <p>Due to the different shapes of the board
-      in this implementation such straight jumps are possible in either
+      in this implementation straight jumps are possible in either
       two or three directions (either four or six directions if counting
       forward and backward jumps separately).</p>
     <p>In <em>Peg Solitaire</em> you select one of the pegs first.
       This peg is going to be removed building a starting position.</p>
     <p>By jumping the total number of pegs is reduced then.
-      <b>All starting positions</b> of a 15 hole triangular board shape
-      <b>do definitively allow</b> to finally end up with just
-      one peg remaining on optimal strategy. Following that
-      scheme other board shapes do have some unsolvable starting
-      positions, too. This class of challenges are referred to as
-      <em>single vacancy to single survivor challenges</em>.</p>
-    <p>If the single vacancy position matches the position of the survivor
-      these challenges are called a <em>complement challenge</em>. As a tough
-      task you might find out <b>which board shapes and vacancies do not
-      allow</b> a complement challenge.</p>
+      <b>All starting positions</b> of a 15 hole and 21 hole triangular
+      board shape <b>do definitively allow</b> to finally end up
+      with <em>just one peg remaining</em> on optimal strategy.
+      This class of challenges are referred to as
+      <em>single vacancy to single survivor challenges</em>.
+      Other board shapes and sizes have both, some solvable and
+      some unsolvable, starting positions for <em>single
+      vacancy to single survivor</em>, too.</p>
+    <p>If the single vacancy position matches the position
+      of the survivor the challenge is called a
+      <em>complement challenge</em>. As a tough task
+      you might find out <b>which board shapes and vacancies
+      either do or do not allow</b> a complement challenge.</p>
     <p>Each jump reduces the total amount of remaining pegs by one.
-      Nevertheless a consecutive series of jumps with same peg could be
-      performed depending on the board situation obviously. Such chained
-      jumps could be seen as a single move. The question arises to find
-      the best solutions with minimum amount of moves then.</p>
-    <p>Feel free to find all possible solutions for these different kind of
-      challenges.</p>
+      Depending on the board situation a <em>consecutive series
+      of jumps with same peg</em> could be performed obviously.
+      Such <em>chained jumps</em> (also called <em>sweeps</em>)
+      could be seen as a single move. The question arises
+      to find the best solutions with minimum
+      amount of moves then.</p>
+    <p>Feel free to find all possible solutions for these
+      different kind of challenges.</p>
     <a href='#' data-role='button' data-icon='back'
       data-rel='back'>Back</a>
   </div><!-- /content -->
@@ -234,7 +246,7 @@ If not otherwise stated all graphics (independent of its format) are licensed un
     <div data-role="collapsible">
       <h4>Peg Solitaire Principles and Concepts</h4>
       <p>The basic concept of removing a peg by jumping over the peg
-        in a Peg Solitaire variant belongs to the public domain due
+        in any Peg Solitaire variant belongs to the public domain due
         to its age and unknown creator.</p>
       <p>Commonly used are square-shaped, cross-shaped, or any
         triangular Solitaire boards first referenced or dating
