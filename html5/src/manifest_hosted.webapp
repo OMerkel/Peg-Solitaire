@@ -1,7 +1,7 @@
 {
   "version": "0.2",
   "name": "PegSolitaire",
-  "description": "Triangular Peg Solitaire",
+  "description": "Peg Solitaire",
   "launch_path": "/Peg-Solitaire/html5/src/index.html",
   "appcache_path": "/Peg-Solitaire/html5/src/offline.appcache",
   "icons": {

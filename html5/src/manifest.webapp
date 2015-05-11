@@ -1,7 +1,7 @@
 {
   "version": "0.2",
   "name": "PegSolitaire",
-  "description": "Triangular Peg Solitaire",
+  "description": "Peg Solitaire",
   "launch_path": "/index.html",
   "icons": {
     "16": "/img/icons/tri_peg_sol-16.png",
