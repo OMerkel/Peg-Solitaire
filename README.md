@@ -1,11 +1,10 @@
-Peg-Solitaire
+<img alt="Peg-Solitaire" width="64" src="html5/src/img/icons/tri_peg_sol-64.png" /> Peg-Solitaire
 =============
 
-<img src="http://omerkel.github.io/Peg-Solitaire/html5/src/img/icons/tri_peg_sol-128.png" /> A <b>Peg Solitaire</b> with various popular board shapes.
+* _Start an online_ __Peg-Solitaire__ _session on_ http://omerkel.github.io/Peg-Solitaire/html5/src
+* <em>Also published in</em> <a href="https://marketplace.firefox.com/app/pegsolitaire"><img align="middle" width="150px" src="https://marketplace.cdn.mozilla.net/media/fireplace/img/pretty/marketplace_logo.png" /></a>
 
-<em>Start a session in browser on http://omerkel.github.io/Peg-Solitaire/html5/src/index.html </em>
-
-The mind bending puzzle of Peg Solitaire is well-known using different board shapes and different amount of holes for placing the pegs. The common mechanics is that a selected peg is capable to jump any directly adjacent single neighbour in straight direction onto a free position. A peg is removed as it gets jumped. The selected peg will end its move just on the first free field behind the peg that gets removed then.
+A <b>Peg Solitaire</b> with various popular board shapes. The mind bending puzzle of Peg Solitaire is well-known using different board shapes and different amount of holes for placing the pegs. The common mechanics is that a selected peg is capable to jump any directly adjacent single neighbour in straight direction onto a free position. A peg is removed as it gets jumped. The selected peg will end its move just on the first free field behind the peg that gets removed then.
 
 <img src="http://omerkel.github.io/Peg-Solitaire/html5/src/img/jump.svg" />
 
