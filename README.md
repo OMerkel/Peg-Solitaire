@@ -24,3 +24,5 @@ If the single vacancy position matches the position of the survivor these challe
 Consecutive jumps with same peg could be performed depending on the board situation obviously. Such chained jumps could be seen as a single move. The question arises to find the best solutions with minimum amount of moves then.
 
 Feel free to find all possible solutions for these different kind of challenges.
+
+_All logos, brands, and trademarks mentioned belong to their respective owners._
