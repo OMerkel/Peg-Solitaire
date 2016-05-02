@@ -16,7 +16,7 @@ in straight direction onto a free position. A peg is removed
 as it gets jumped. The selected peg will end its move just on
 the first free field behind the peg that gets removed then.
 
-<img src="html5/src/img/jump.svg" />
+<img src="http://omerkel.github.io/Peg-Solitaire/html5/src/img/jump.svg" />
 
 Supported board shapes include
 
