@@ -3,17 +3,16 @@
   "name": "PegSolitaire",
   "description": "Peg Solitaire",
   "launch_path": "/Peg-Solitaire/html5/src/index.html",
-  "appcache_path": "/Peg-Solitaire/html5/src/offline.appcache",
   "icons": {
-    "16": "/Peg-Solitaire/html5/src/img/icons/tri_peg_sol-16.png",
-    "32": "/Peg-Solitaire/html5/src/img/icons/tri_peg_sol-32.png",
-    "48": "/Peg-Solitaire/html5/src/img/icons/tri_peg_sol-48.png",
-    "60": "/Peg-Solitaire/html5/src/img/icons/tri_peg_sol-60.png",
-    "64": "/Peg-Solitaire/html5/src/img/icons/tri_peg_sol-64.png",
-    "90": "/Peg-Solitaire/html5/src/img/icons/tri_peg_sol-90.png",
-    "120": "/Peg-Solitaire/html5/src/img/icons/tri_peg_sol-120.png",
-    "128": "/Peg-Solitaire/html5/src/img/icons/tri_peg_sol-128.png",
-    "256": "/Peg-Solitaire/html5/src/img/icons/tri_peg_sol-256.png"
+    "16": "/Peg-Solitaire/html5/src/img/icons/pegsol16.png",
+    "32": "/Peg-Solitaire/html5/src/img/icons/pegsol32.png",
+    "48": "/Peg-Solitaire/html5/src/img/icons/pegsol48.png",
+    "60": "/Peg-Solitaire/html5/src/img/icons/pegsol60.png",
+    "64": "/Peg-Solitaire/html5/src/img/icons/pegsol64.png",
+    "90": "/Peg-Solitaire/html5/src/img/icons/pegsol90.png",
+    "120": "/Peg-Solitaire/html5/src/img/icons/pegsol120.png",
+    "128": "/Peg-Solitaire/html5/src/img/icons/pegsol128.png",
+    "256": "/Peg-Solitaire/html5/src/img/icons/pegsol256.png"
   },
   "developer": {
     "name": "Oliver Merkel",

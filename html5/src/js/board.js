@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2014 Oliver Merkel
+// Copyright (c) 2016 Oliver Merkel
 // All rights reserved.
 //
 // @author Oliver Merkel, <Merkel(dot)Oliver(at)web(dot)de>
@@ -36,10 +36,6 @@ Board.prototype.select = function ( pegId ) {
       this.peg[moveOver] && !this.peg[moveOnto];
   }
   this.selected = selectable ? pegId : null;
-};
-
-Board.prototype.isSelected = function () {
-  return null!=this.selected;
 };
 
 Board.prototype.jump = function ( pegId ) {

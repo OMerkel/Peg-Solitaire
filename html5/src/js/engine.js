@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2014 Oliver Merkel
+// Copyright (c) 2016 Oliver Merkel
 // All rights reserved.
 //
 // @author Oliver Merkel, <Merkel(dot)Oliver(at)web(dot)de>
@@ -79,18 +79,6 @@ Session.prototype.draw = function () {
   });
 };
 
-/*
- * get available moves list
- *
- * This is a move generator returning a list of legal moves
- * of the current game situation.
- * 
- */
-Session.prototype.getMoves = function () {
-  var result = [];
-  return result;
-};
-
 Session.prototype.remove = function ( data ) {
   this.board.remove(Number(data.peg));
 };
@@ -101,20 +89,6 @@ Session.prototype.jump = function ( data ) {
 
 Session.prototype.select = function ( data ) {
   this.board.select(Number(data.peg));
-};
-
-Session.prototype.move = function ( data ) {
-  var validMove = false;
-  var moves = this.getMoves();
-  for(var index=0; index<moves.length; ++index) {
-    validMove |= data.move == moves[index];
-  }
-  if (validMove) {
-    // do some magic
-  }
-  else {
-    this.draw();
-  }
 };
 
 Session.prototype.setup = function (shape) {
