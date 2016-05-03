@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2014 Oliver Merkel
+// Copyright (c) 2016 Oliver Merkel
 // All rights reserved.
 //
 // @author Oliver Merkel, <Merkel(dot)Oliver(at)web(dot)de>
@@ -319,7 +319,8 @@ if ( !String.prototype.startsWith ) {
 
 Hmi.prototype.myChoice = function( e ) {
   if (typeof e.currentTarget == 'object') {
-    if (e.currentTarget.id.startsWith('peg')) {
+    if (e.currentTarget.id.startsWith('peg') &&
+      !($('#' + e.currentTarget.id).hasClass('hidden'))) {
       // this.disablePegSelection();
       var idPeg = Number(e.currentTarget.id.slice(-2));
       console.log('idPeg ' + idPeg);
