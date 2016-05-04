@@ -1,7 +1,7 @@
 {
   "version": "0.3",
   "name": "PegSolitaire",
-  "description": "Peg Solitaire",
+  "description": "Peg Solitaire with various popular board shapes",
   "launch_path": "/Peg-Solitaire/html5/src/index.html",
   "icons": {
     "16": "/Peg-Solitaire/html5/src/img/icons/pegsol16.png",
