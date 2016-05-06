@@ -3,6 +3,8 @@
 
 * <em>Start an online</em> <b>Peg Solitaire</b> <em>session on</em> http://omerkel.github.io/Peg-Solitaire/html5/src
 * <em>Also published in</em> <a href="https://marketplace.firefox.com/app/pegsolitaire"><img align="middle" width="150px" src="https://marketplace.cdn.mozilla.net/media/fireplace/img/pretty/marketplace_logo.png" /></a>
+* <em>Android APK available for install</em> <img align="top" width="32" src="res/android.gif" /> https://github.com/OMerkel/Peg-Solitaire/releases/tag/release_apk_0.3
+    * requires minimum Android 4.4.2 (API-19)
 * <em>Runs in various browsers on</em>
     * <em>desktop systems like BSDs, Linux, Win, MacOS and</em>
     * <em>mobile platforms like Android, FirefoxOS, iOS.</em>
@@ -46,5 +48,16 @@ single move. The question arises to find the best solutions with
 minimum amount of moves then.
 
 Feel free to find all possible solutions for these different kind of challenges.
+
+#Contributors / Authors
+
+<table>
+  <tr>
+    <td><p>Oliver Merkel,<br /><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This image is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+    </p>
+    </td>
+    <td width="30%"><img width="100%" ondragstart="return false;" alt="Oliver Merkel, Creative Commons License, This image is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License." src="html5/src/img/oliver-bastorf-2014.jpg" /></td>
+  </tr>
+</table>
 
 _All logos, brands, and trademarks mentioned belong to their respective owners._

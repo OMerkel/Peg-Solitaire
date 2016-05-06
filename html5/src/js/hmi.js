@@ -129,13 +129,15 @@ function Hmi() {
 }
 
 Hmi.prototype.init = function() {
+  var shape = getShape();
+  var id = Common.PEG[shape].ID;
   this.hole = [];
   this.peg = [];
   $('#pegboard').html('')
-  for(var n=0; n<this.getPegsTotal(); ++n) {
-    this.hole[n] = $('<div id="hole' + Common.PEG[getShape()].ID[n] + '" class="hole"></div>');
+  for(var n=0; n<id.length; ++n) {
+    this.hole[n] = $('<div id="hole' + id[n] + '" class="hole"></div>');
     this.hole[n].appendTo('#pegboard');
-    this.peg[n] = $('<div id="peg' + Common.PEG[getShape()].ID[n] + '" class="peg"></div>');
+    this.peg[n] = $('<div id="peg' + id[n] + '" class="peg"></div>');
     this.peg[n].appendTo('#pegboard');
     this.peg[n].on('click', this.myChoice.bind(this));
     this.peg[n].on('touchstart', this.myChoice.bind(this));
@@ -149,21 +151,17 @@ Hmi.prototype.init = function() {
       Hmi.PEG[Common.SHAPETRIANGULAR5].DIRECTION[j] + '" data="img/jump' + j +
       '.svg" type="image/svg+xml" class="hint"></object>');
     jump.appendTo('#pegboard');
-    this.jump[this.jump.length] = jump;    
+    this.jump[this.jump.length] = jump;
   }
   jump = $('<object id="jump_' + Hmi.PEG[Common.SHAPEENGLISH].DIRECTION[0] +
     '" data="img/jump' + 6 + '.svg" type="image/svg+xml" class="hint"></object>');
-  jump.appendTo('#pegboard');  
-  this.jump[this.jump.length] = jump;    
+  jump.appendTo('#pegboard');
+  this.jump[this.jump.length] = jump;
   jump = $('<object id="jump_' + Hmi.PEG[Common.SHAPEENGLISH].DIRECTION[2] +
     '" data="img/jump' + 7 + '.svg" type="image/svg+xml" class="hint"></object>');
-  jump.appendTo('#pegboard');  
-  this.jump[this.jump.length] = jump;    
+  jump.appendTo('#pegboard');
+  this.jump[this.jump.length] = jump;
 };
-
-Hmi.prototype.getPegsTotal = function() {
-  return Common.PEG[getShape()].ID.length;
-}
 
 Hmi.prototype.pegsLeft = function() {
   var result = 0;
@@ -202,7 +200,7 @@ Hmi.prototype.resize = function() {
     'padding': '0px',
   });
 
-  for(var i = 0; i<setCommon.ID.length; ++i) { 
+  for(var i = 0; i<setCommon.ID.length; ++i) {
     var hole = $('#hole' + setCommon.ID[i]),
       peg = $('#peg' + setCommon.ID[i]),
       isHidden = peg.hasClass('hidden'),
@@ -214,7 +212,7 @@ Hmi.prototype.resize = function() {
       pegBorder = isSelected ? 6 : 3,
       pegTopCenter = boardHeight * setHmi.LAYOUT[i].Y / 1000,
       pegTop = pegTopCenter - ( pegHeight * 0.5 ) - pegBorder,
-      holeTop = pegTopCenter - ( holeHeight * 0.5 ) - pegBorder, 
+      holeTop = pegTopCenter - ( holeHeight * 0.5 ) - pegBorder,
       pegLeftCenter = boardWidth * setHmi.LAYOUT[i].X / 1000,
       pegLeft = pegLeftCenter - ( pegWidth * 0.5 ) - pegBorder,
       holeLeft = pegLeftCenter - ( holeWidth * 0.5 ) - pegBorder;
@@ -226,7 +224,7 @@ Hmi.prototype.resize = function() {
       'left': holeLeft +'px',
       'width': holeWidth +'px',
       'height': holeHeight +'px',
-      'border-radius': (pegBorder + 0.5 * holeWidth) +'px',    
+      'border-radius': (pegBorder + 0.5 * holeWidth) +'px',
       'margin': '0px',
       'padding': '0px',
     });
@@ -235,7 +233,7 @@ Hmi.prototype.resize = function() {
       'left': pegLeft +'px',
       'width': pegWidth +'px',
       'height': pegHeight +'px',
-      'border-radius': (pegBorder + 0.5 * pegWidth) +'px',    
+      'border-radius': (pegBorder + 0.5 * pegWidth) +'px',
       'margin': '0px',
       'padding': '0px',
     });
@@ -293,7 +291,7 @@ Hmi.prototype.redraw = function(board) {
       isSupportedDirection = -1 != indexDirection;
     if ( null == selected || !isSupportedDirection ) {
       jump.css( 'visibility', 'hidden' );
-    } else {    
+    } else {
       var direction = Common.PEG[shape].DIRECTION[indexDirection];
       var moveOver = selected + direction;
       var moveOnto = moveOver + direction;
@@ -350,6 +348,7 @@ Hmi.prototype.restart = function() {
 
 function newGame() {
   hmi.restart();
+  $( '#left-panel' ).panel( 'close' );
 }
 
 function getShape() {
