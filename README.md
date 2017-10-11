@@ -49,7 +49,7 @@ minimum amount of moves then.
 
 Feel free to find all possible solutions for these different kind of challenges.
 
-#Contributors / Authors
+# Contributors / Authors
 
 <table>
   <tr>
