@@ -2046,7 +2046,7 @@ function transform3dTest() {
 
 	el = document.createElement( "div" );
 	transforms = {
-		// Weâ€™re omitting Opera for the time being; MS uses unprefixed.
+		// We’re omitting Opera for the time being; MS uses unprefixed.
 		"MozTransform": "-moz-transform",
 		"transform": "transform"
 	};
