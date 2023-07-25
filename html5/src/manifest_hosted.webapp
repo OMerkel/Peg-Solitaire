@@ -1,5 +1,5 @@
 {
-  "version": "0.3",
+  "version": "0.4",
   "name": "PegSolitaire",
   "description": "Peg Solitaire with various popular board shapes",
   "launch_path": "/Peg-Solitaire/html5/src/index.html",
