@@ -1,17 +1,11 @@
 //
-// Copyright (c) 2016 Oliver Merkel
+// Copyright (c) 2016, 2023 Oliver Merkel
 // All rights reserved.
 //
 // @author Oliver Merkel, <Merkel(dot)Oliver(at)web(dot)de>
 //
 
 Common = {
-  ONTO: 'onto',
-  OVER: 'over',
-  SHAPE: 'shape',
-  PEGS: 'pegs',
-  SELECTED: 'selected',
-
   SHAPETRIANGULAR5: 0,
   SHAPETRIANGULAR6: 1,
   SHAPEENGLISH: 2,
@@ -25,7 +19,7 @@ Common = {
         32, 33, 34, 35,
         22, 23, 24, 25, 26
       ],
-      DIRECTION: [ 9, 10, 1, -9, -10, -1 ]
+      DIRECTION: [ -1, 9, 10, 1, -9, -10 ]
     },
     {
       ID: [
@@ -36,7 +30,7 @@ Common = {
         32, 33, 34, 35, 36,
         22, 23, 24, 25, 26, 27
       ],
-      DIRECTION: [ 9, 10, 1, -9, -10, -1 ]
+      DIRECTION: [ -1, 9, 10, 1, -9, -10 ]
     },
     {
       ID: [  
@@ -48,7 +42,7 @@ Common = {
                 34, 35, 36,
                 24, 25, 26
       ],
-      DIRECTION: [ 10, 1, -10, -1 ]
+      DIRECTION: [ -1, 10, 1, -10 ]
     },
     {
       ID: [  
@@ -60,7 +54,7 @@ Common = {
             33, 34, 35, 36, 37,
                 24, 25, 26
       ],
-      DIRECTION: [ 10, 1, -10, -1 ]
+      DIRECTION: [ -1, 10, 1, -10 ]
     },
   ],
 
