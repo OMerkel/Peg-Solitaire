@@ -228,39 +228,44 @@ Hmi.prototype.redraw = function() {
   for(var n=0; n<Common.PEG[boardState.shape].ID.length; ++n) {
     this.hmiBoard.markerRemove[n].attr({ visibility: 'hidden' });
   }
+  var targetFields = [];
   for(var n=0; n<Common.PEG[boardState.shape].ID.length; ++n) {
-    var id = Common.PEG[boardState.shape].ID[n];
-    var isVisible = boardState.pegs[id];
-    
-    this.hmiBoard.peg[n].attr({
-      strokeWidth: boardState.selected == id ? 10 : 4,
-      strokeOpacity: 1,
-      fillOpacity: 1,
-      visibility : isVisible ? 'visible' : 'hidden'
-    });
+    var isNotTargetField = -1 == $.inArray( n, targetFields );
+    if (isNotTargetField) {
+      var id = Common.PEG[boardState.shape].ID[n];
+      var isVisible = boardState.pegs[id];
+      
+      this.hmiBoard.peg[n].attr({
+        strokeWidth: boardState.selected == id ? 10 : 4,
+        strokeOpacity: 1,
+        fillOpacity: 1,
+        visibility : isVisible ? 'visible' : 'hidden'
+      });
 
-    for(var i=0; i<Common.PEG[boardState.shape].DIRECTION.length; ++i) {
-      var direction = Common.PEG[boardState.shape].DIRECTION[i];
-      var moveOver = boardState.selected + direction;
-      var moveOnto = moveOver + direction;
-      var removeIndex = $.inArray( moveOver, Common.PEG[boardState.shape].ID );
-      var targetIndex = $.inArray( moveOnto, Common.PEG[boardState.shape].ID );
-      var isJump = -1 != targetIndex &&
-        boardState.pegs[moveOver] &&
-        !boardState.pegs[moveOnto];
-      var v = (boardState.selected == id) && isJump;
-      if (v) {
-        this.hmiBoard.markerRemove[removeIndex].attr({ visibility: 'visible' });
-        this.hmiBoard.peg[targetIndex].attr({
-          strokeWidth: 4,
-          strokeOpacity: 0.1,
-          fillOpacity: 0.1,
-          visibility: 'visible',
+      for(var i=0; i<Common.PEG[boardState.shape].DIRECTION.length; ++i) {
+        var direction = Common.PEG[boardState.shape].DIRECTION[i];
+        var moveOver = boardState.selected + direction;
+        var moveOnto = moveOver + direction;
+        var removeIndex = $.inArray( moveOver, Common.PEG[boardState.shape].ID );
+        var targetIndex = $.inArray( moveOnto, Common.PEG[boardState.shape].ID );
+        var isJump = -1 != targetIndex &&
+          boardState.pegs[moveOver] &&
+          !boardState.pegs[moveOnto];
+        var v = (boardState.selected == id) && isJump;
+        if (v) {
+          this.hmiBoard.markerRemove[removeIndex].attr({ visibility: 'visible' });
+          this.hmiBoard.peg[targetIndex].attr({
+            strokeWidth: 4,
+            strokeOpacity: 0.1,
+            fillOpacity: 0.1,
+            visibility: 'visible',
+          });
+          targetFields[targetFields.length]=targetIndex;
+        }
+        this.hmiBoard.markerJump[n][i].attr({
+          visibility: v ? 'visible' : 'hidden'
         });
       }
-      this.hmiBoard.markerJump[n][i].attr({
-        visibility: v ? 'visible' : 'hidden'
-      });
     }
   }
   this.resize();
