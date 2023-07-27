@@ -141,6 +141,7 @@ function Hmi() {
   this.pegGradient = this.s.gradient('l(0,0,1,1)#fff-#d40-#900');
   this.cPegGradient = this.s.gradient('r(0,0,1.4,0.3,0.3)#f60-#620');
   $('#new').click( this.newGame.bind(this) );
+  $('#step').click( this.showNext.bind(this) );
 }
 
 Hmi.prototype.init = function() {
@@ -271,35 +272,40 @@ Hmi.prototype.redraw = function() {
   this.resize();
 };
 
+Hmi.prototype.perform = function( n ) {
+  var boardState = this.board.getState();
+  var id = Common.PEG[boardState.shape].ID[n];
+  // console.log( 'click : ' + id );
+  if (this.board.getPegsLeft() == Common.PEG[boardState.shape].ID.length) {
+    this.board.remove( id );
+  } else {
+    if ( boardState.selected ) {
+      for(var i=0; i<Common.PEG[boardState.shape].DIRECTION.length; ++i) {
+        var direction = Common.PEG[boardState.shape].DIRECTION[i];
+        var moveOver = boardState.selected + direction;
+        var moveOnto = moveOver + direction;
+        var removeIndex = $.inArray( moveOver, Common.PEG[boardState.shape].ID );
+        var targetIndex = $.inArray( moveOnto, Common.PEG[boardState.shape].ID );
+        var isJump = -1 != targetIndex &&
+          boardState.pegs[moveOver] &&
+          !boardState.pegs[moveOnto];
+        if (isJump && id == moveOnto) {
+          this.board.jump(moveOnto);
+        }
+      }
+    }
+    this.board.select( id );
+  }
+  this.redraw();
+};
+
 Hmi.prototype.myChoice = function( event ) {
+  $('#step').css({ visibility: 'hidden' });
   var searching = true;
   for( var n=0; n<this.hmiBoard.button.length && searching; n++) {
     if (this.hmiBoard.button[n].id == event.currentTarget.snap) {
       searching = false;
-      var boardState = this.board.getState();
-      var id = Common.PEG[boardState.shape].ID[n];
-      // console.log( 'click : ' + id );
-      if (this.board.getPegsLeft() == Common.PEG[boardState.shape].ID.length) {
-        this.board.remove( id );
-      } else {
-        if ( boardState.selected ) {
-          for(var i=0; i<Common.PEG[boardState.shape].DIRECTION.length; ++i) {
-            var direction = Common.PEG[boardState.shape].DIRECTION[i];
-            var moveOver = boardState.selected + direction;
-            var moveOnto = moveOver + direction;
-            var removeIndex = $.inArray( moveOver, Common.PEG[boardState.shape].ID );
-            var targetIndex = $.inArray( moveOnto, Common.PEG[boardState.shape].ID );
-            var isJump = -1 != targetIndex &&
-              boardState.pegs[moveOver] &&
-              !boardState.pegs[moveOnto];
-            if (isJump && id == moveOnto) {
-              this.board.jump(moveOnto);
-            }
-          }
-        }
-        this.board.select( id );
-      }
-      this.redraw();
+      this.perform(n);
     }
   }
 };
@@ -318,13 +324,32 @@ Hmi.prototype.newGame = function() {
     }
     this.hmiBoard.markerJump[n] = null;
   }
+  this.playbackIndex = 0;
+  $('#step').css({ visibility:
+    $('#boardEnglishSolution').is(':checked') ? 'visible' :
+    'hidden'
+  });
   this.init();
+};
+
+Hmi.prototype.showNext = function() {
+  var solution = [ 16, 4, 16, 7, 9, 0, 8, 2, 0, 15, 3, 0, 8, 9, 7, 17, 15, 
+    5, 17, 6, 8, 15, 3, 13, 15, 22, 8, 20, 22, 3, 15, 12, 10, 17, 5, 19,
+    17, 24, 10, 26, 24, 5, 17, 23, 21, 30, 22, 15, 27, 32, 30, 22, 21, 23,
+    28, 16, 18, 29, 17, 18, 16 ];
+  if ( this.playbackIndex < solution.length ) {
+    this.perform(solution[this.playbackIndex++]);
+  }
+  if ( this.playbackIndex >= solution.length ) {
+    $('#step').css({ visibility: 'hidden' });
+  }
 };
 
 Hmi.prototype.getShape = function() {
   return $('#boardTriangular5').is(':checked') ? Common.SHAPETRIANGULAR5 :
     $('#boardTriangular6').is(':checked') ? Common.SHAPETRIANGULAR6 :
     $('#boardEnglish').is(':checked') ? Common.SHAPEENGLISH :
+    $('#boardEnglishSolution').is(':checked') ? Common.SHAPEENGLISH :
     Common.SHAPEFRENCH;
 };
 
