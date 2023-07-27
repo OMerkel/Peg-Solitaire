@@ -88,6 +88,9 @@ If not otherwise stated all graphics (independent of its format) are licensed un
       <span id='new' class='ui-button ui-widget ui-corner-all'>
         New
       </span>
+      <span id='step' class='ui-button ui-widget ui-corner-all' style='visibility: hidden;'>
+        Step
+      </span>
     </center>
   </div><!-- /tabs-board -->
 
@@ -116,8 +119,23 @@ If not otherwise stated all graphics (independent of its format) are licensed un
         <label for='boardFrench'>
           French Solitaire
         </label>
+        <p style='background: darkred;'><b>Spoiler alert!</b> Here are some solutions to step through:</p>
+        <h3>Single vacancy to single survivor challenges</h3>
+        <input name='boardShape' id='boardEnglishSolution'
+          type='radio' />
+        <label for='boardEnglishSolution'>
+          Solution for English Solitaire
+        </label>
+        <p>The solution has both the single vacancy and single survivor in
+          center position of the board (complement challenge).
+          This is the most aesthetic silver bullet solution of the
+          English Solitaire puzzle. There are multiple solutions
+          known to the challenge. Here I selected a solution with some
+          symmetrical well balanced board positions making the aesthetic
+          solution easier to recall.</p>
       </fieldset>
     </form>
+    <p><i><b>Mind:</b> Selection gets active after pushing the 'new' button.</i></p>
   </div>
   </div><!-- /tabs-options -->
 
