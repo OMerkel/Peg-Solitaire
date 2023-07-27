@@ -96,6 +96,7 @@ If not otherwise stated all graphics (independent of its format) are licensed un
 
   <div id='tabs-options'>
   <div>
+    <p><i><b>Mind:</b> Selection gets active after pushing the 'new' button.</i></p>
     <form>
       <fieldset data-role='controlgroup'>
         <legend>Board Shape</legend>
@@ -121,25 +122,62 @@ If not otherwise stated all graphics (independent of its format) are licensed un
         </label>
         <p style='background: darkred;'><b>Spoiler alert!</b> Here are some solutions to step through:</p>
         <h3>Single vacancy to single survivor challenges</h3>
-        <input name='boardShape' id='boardEnglishSolution'
-          type='radio' />
-        <label for='boardEnglishSolution'>
-          Solution for English Solitaire
-        </label>
+        <h4>Solving English Solitaire</h4>
+        <p>
+          <input name='boardShape' id='boardEnglishSolution'
+            type='radio' />
+          <label for='boardEnglishSolution'>
+            Solve English Solitaire
+          </label>
+        </p>
         <p>
           <figure class='diagram' style='float: right;'>
             <img src='img/english_solitaire_cp_start_to_end.svg' />
-            <figcaption>The solution has both the single vacancy and single survivor in
-              center position of the board (complement challenge).</figcaption>
+            <figcaption>Here the single vacancy and single survivor are in same
+              centered position (complement challenge)</figcaption>
           </figure>
           This is the most aesthetic silver bullet solution of the
           English Solitaire puzzle. There are multiple solutions
           known to the challenge. Here I selected a solution with some
-          symmetrical well balanced board positions making the aesthetic
-          solution easier to recall.</p>
+          symmetrical well balanced board positions. That makes the aesthetic
+          solution easier to recall.
+        </p>
+        <br clear='all' />
+        <h4>Solving Triangular5</h4>
+        <p>
+          On a Triangular5 board there are 4 different type of peg positions: Corner position, mid edge position, the position in between both and the position not touching any edge or corner.
+          Each field is of one of these types and by symmetry (board axis mirroring and turning) you can see that no other field types exist. As such you can distinguish among four
+          single vacancy to single survivor challenges. And no matter which initial position is chosen as the vacancy you can always finally end up
+          with <em>just one peg remaining</em> on optimal strategy.
+        </p>
+        <p>
+          <input name='boardShape' id='boardTriangular5CornerSolution'
+            type='radio' />
+          <label for='boardTriangular5CornerSolution'>
+            Solve Triangular5 - Corner Vacancy
+          </label>
+          <input name='boardShape' id='boardTriangular5MidEdgeSolution'
+            type='radio' />
+          <label for='boardTriangular5MidEdgeSolution'>
+            Solve Triangular5 - Mid Edge Vacancy
+          </label>
+          <input name='boardShape' id='boardTriangular5EdgeSolution'
+            type='radio' />
+          <label for='boardTriangular5EdgeSolution'>
+            Solve Triangular5 - Edge Vacancy
+          </label>
+          <input name='boardShape' id='boardTriangular5InnerSolution'
+            type='radio' />
+          <label for='boardTriangular5InnerSolution'>
+            Solve Triangular5 - Inner Vacancy
+          </label>
+        </p>
+        <p>
+          <em>Minor hint:</em> In all solutions of an Triangular5 board never
+          start a peg's jump from any of the three inner board positions.
+        </p>
       </fieldset>
     </form>
-    <p><i><b>Mind:</b> Selection gets active after pushing the 'new' button.</i></p>
   </div>
   </div><!-- /tabs-options -->
 

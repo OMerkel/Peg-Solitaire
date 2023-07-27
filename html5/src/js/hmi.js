@@ -130,6 +130,7 @@ Board.prototype.getPegsLeft = function() {
 
 function Hmi() {
   this.board = new Board();
+  this.solutionName = '';
   this.s = Snap('#board').attr({viewBox: '-10 -10 1020 1020' });
   this.s.circle(500, 500, 500).attr({
     fill: '#aaa',
@@ -275,7 +276,7 @@ Hmi.prototype.redraw = function() {
 Hmi.prototype.perform = function( n ) {
   var boardState = this.board.getState();
   var id = Common.PEG[boardState.shape].ID[n];
-  // console.log( 'click : ' + id );
+  // console.log( 'click : ' + n );
   if (this.board.getPegsLeft() == Common.PEG[boardState.shape].ID.length) {
     this.board.remove( id );
   } else {
@@ -312,6 +313,12 @@ Hmi.prototype.myChoice = function( event ) {
 
 Hmi.prototype.newGame = function() {
   console.log('newGame');
+  this.solutionName = $('#boardEnglishSolution').is(':checked') ? 'boardEnglishSolution' :
+    $('#boardTriangular5CornerSolution').is(':checked') ? 'boardTriangular5CornerSolution' :
+    $('#boardTriangular5MidEdgeSolution').is(':checked') ? 'boardTriangular5MidEdgeSolution' :
+    $('#boardTriangular5EdgeSolution').is(':checked') ? 'boardTriangular5EdgeSolution' :
+    $('#boardTriangular5InnerSolution').is(':checked') ? 'boardTriangular5InnerSolution' :
+    '';
   var boardState = this.board.getState();
   var peg = Hmi.PEG[boardState.shape];
   for(var n=0; n<peg.LAYOUT.length; ++n) {
@@ -325,28 +332,39 @@ Hmi.prototype.newGame = function() {
     this.hmiBoard.markerJump[n] = null;
   }
   this.playbackIndex = 0;
-  $('#step').css({ visibility:
-    $('#boardEnglishSolution').is(':checked') ? 'visible' :
-    'hidden'
-  });
+  $('#step').css({ visibility: this.solutionName != '' ? 'visible' : 'hidden' });
   this.init();
 };
 
 Hmi.prototype.showNext = function() {
-  var solution = [ 16, 4, 16, 7, 9, 0, 8, 2, 0, 15, 3, 0, 8, 9, 7, 17, 15, 
-    5, 17, 6, 8, 15, 3, 13, 15, 22, 8, 20, 22, 3, 15, 12, 10, 17, 5, 19,
-    17, 24, 10, 26, 24, 5, 17, 23, 21, 30, 22, 15, 27, 32, 30, 22, 21, 23,
-    28, 16, 18, 29, 17, 18, 16 ];
-  if ( this.playbackIndex < solution.length ) {
-    this.perform(solution[this.playbackIndex++]);
+  var solution = {
+    'boardEnglishSolution': [ 16, 4, 16, 7, 9, 0, 8, 2, 0, 15, 3, 0, 8, 9, 7, 17, 15, 
+      5, 17, 6, 8, 15, 3, 13, 15, 22, 8, 20, 22, 3, 15, 12, 10, 17, 5, 19,
+      17, 24, 10, 26, 24, 5, 17, 23, 21, 30, 22, 15, 27, 32, 30, 22, 21, 23,
+      28, 16, 18, 29, 17, 18, 16 ],
+    'boardTriangular5CornerSolution': [ 0, 3, 0, 5, 3, 0, 5, 9, 2, 12, 5, 0, 10,
+      12, 6, 1, 0, 3, 13, 11, 3, 12, 11, 13, 14, 12 ],
+    'boardTriangular5MidEdgeSolution': [ 3, 5, 3, 0, 5, 13, 4, 11, 13, 14, 12,
+      9, 2, 3, 5, 0, 3, 6, 1, 12, 3, 1, 6, 10, 3 ],
+    'boardTriangular5EdgeSolution': [ 1, 6, 1, 12, 3, 10, 12, 1, 6, 9, 7, 12,
+      3, 6, 1, 8, 14, 12, 2, 9, 12, 5, 9, 2, 0, 5 ],
+    'boardTriangular5InnerSolution': [ 4, 13, 4, 11, 13, 6, 8, 9, 7, 2, 9, 1,
+      6, 14, 5, 3, 6, 1, 0, 3, 12, 13, 11, 10, 12 ]
+  };
+  if ( this.playbackIndex < solution[this.solutionName].length ) {
+    this.perform(solution[this.solutionName][this.playbackIndex++]);
   }
-  if ( this.playbackIndex >= solution.length ) {
+  if ( this.playbackIndex >= solution[this.solutionName].length ) {
     $('#step').css({ visibility: 'hidden' });
   }
 };
 
 Hmi.prototype.getShape = function() {
   return $('#boardTriangular5').is(':checked') ? Common.SHAPETRIANGULAR5 :
+    $('#boardTriangular5CornerSolution').is(':checked') ? Common.SHAPETRIANGULAR5 :
+    $('#boardTriangular5MidEdgeSolution').is(':checked') ? Common.SHAPETRIANGULAR5 :
+    $('#boardTriangular5EdgeSolution').is(':checked') ? Common.SHAPETRIANGULAR5 :
+    $('#boardTriangular5InnerSolution').is(':checked') ? Common.SHAPETRIANGULAR5 :
     $('#boardTriangular6').is(':checked') ? Common.SHAPETRIANGULAR6 :
     $('#boardEnglish').is(':checked') ? Common.SHAPEENGLISH :
     $('#boardEnglishSolution').is(':checked') ? Common.SHAPEENGLISH :
