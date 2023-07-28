@@ -319,6 +319,8 @@ Hmi.prototype.newGame = function() {
     $('#boardTriangular5MidEdgeSolution').is(':checked') ? 'boardTriangular5MidEdgeSolution' :
     $('#boardTriangular5EdgeSolution').is(':checked') ? 'boardTriangular5EdgeSolution' :
     $('#boardTriangular5InnerSolution').is(':checked') ? 'boardTriangular5InnerSolution' :
+    $('#boardFrench1Solution').is(':checked') ? 'boardFrench1Solution' :
+    $('#boardFrench2Solution').is(':checked') ? 'boardFrench2Solution' :
     '';
   var boardState = this.board.getState();
   var peg = Hmi.PEG[boardState.shape];
@@ -354,7 +356,15 @@ Hmi.prototype.showNext = function() {
     'boardTriangular5EdgeSolution': [ 1, 6, 1, 12, 3, 10, 12, 1, 6, 9, 7, 12,
       3, 6, 1, 8, 14, 12, 2, 9, 12, 5, 9, 2, 0, 5 ],
     'boardTriangular5InnerSolution': [ 4, 13, 4, 11, 13, 6, 8, 9, 7, 2, 9, 1,
-      6, 14, 5, 3, 6, 1, 0, 3, 12, 13, 11, 10, 12 ]
+      6, 14, 5, 3, 6, 1, 0, 3, 12, 13, 11, 10, 12 ],
+    'boardFrench1Solution': [ 11, 1, 11, 3, 5, 17, 4, 0, 10, 30, 17, 4, 32, 30,
+      34, 24, 19, 17, 30, 6, 19, 32, 4, 6, 2, 12, 36, 34, 24, 33,
+      31, 28, 26, 15, 17, 30, 32, 19, 6, 14, 12, 7, 5, 8, 10, 22,
+      24, 21, 19, 6, 4, 17, 30, 29, 31, 18, 11, 25 ],
+    'boardFrench2Solution': [ 0, 2, 0, 11, 1, 9, 11, 24, 10, 34, 24, 19, 17, 30,
+      7, 5, 18, 21, 19, 6, 3, 5, 22, 24, 33, 20, 14, 12, 25, 27, 13, 11, 9, 8,
+      10, 0, 2, 12, 36, 26, 35, 25, 27, 29, 31, 15, 17, 19, 6, 4, 17, 30,
+      32, 28, 26, 36 ]
   };
   if ( this.playbackIndex < solution[this.solutionName].length ) {
     this.perform(solution[this.solutionName][this.playbackIndex++]);
