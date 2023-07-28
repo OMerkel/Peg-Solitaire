@@ -314,6 +314,7 @@ Hmi.prototype.myChoice = function( event ) {
 Hmi.prototype.newGame = function() {
   console.log('newGame');
   this.solutionName = $('#boardEnglishSolution').is(':checked') ? 'boardEnglishSolution' :
+    $('#boardEnglishHeartSolution').is(':checked') ? 'boardEnglishHeartSolution' :
     $('#boardTriangular5CornerSolution').is(':checked') ? 'boardTriangular5CornerSolution' :
     $('#boardTriangular5MidEdgeSolution').is(':checked') ? 'boardTriangular5MidEdgeSolution' :
     $('#boardTriangular5EdgeSolution').is(':checked') ? 'boardTriangular5EdgeSolution' :
@@ -342,6 +343,10 @@ Hmi.prototype.showNext = function() {
       5, 17, 6, 8, 15, 3, 13, 15, 22, 8, 20, 22, 3, 15, 12, 10, 17, 5, 19,
       17, 24, 10, 26, 24, 5, 17, 23, 21, 30, 22, 15, 27, 32, 30, 22, 21, 23,
       28, 16, 18, 29, 17, 18, 16 ],
+    'boardEnglishHeartSolution': [ 16, 4, 16, 7, 9, 0, 8, 2, 0, 15, 3, 0, 8, 27, 15, 
+      20, 22, 6, 20, 23, 21, 20, 22, 25, 23, 32, 24, 30, 32, 17, 29, 32, 24, 5,
+      17, 12, 10, 26, 12, 9, 11, 12, 10, 23, 21, 7, 9, 11, 25, 23, 16, 14,
+      28, 16, 17, 15, 14, 16 ],
     'boardTriangular5CornerSolution': [ 0, 3, 0, 5, 3, 0, 5, 9, 2, 12, 5, 0, 10,
       12, 6, 1, 0, 3, 13, 11, 3, 12, 11, 13, 14, 12 ],
     'boardTriangular5MidEdgeSolution': [ 3, 5, 3, 0, 5, 13, 4, 11, 13, 14, 12,
@@ -368,6 +373,7 @@ Hmi.prototype.getShape = function() {
     $('#boardTriangular6').is(':checked') ? Common.SHAPETRIANGULAR6 :
     $('#boardEnglish').is(':checked') ? Common.SHAPEENGLISH :
     $('#boardEnglishSolution').is(':checked') ? Common.SHAPEENGLISH :
+    $('#boardEnglishHeartSolution').is(':checked') ? Common.SHAPEENGLISH :
     Common.SHAPEFRENCH;
 };
 
