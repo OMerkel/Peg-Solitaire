@@ -319,6 +319,8 @@ Hmi.prototype.newGame = function() {
     $('#boardTriangular5MidEdgeSolution').is(':checked') ? 'boardTriangular5MidEdgeSolution' :
     $('#boardTriangular5EdgeSolution').is(':checked') ? 'boardTriangular5EdgeSolution' :
     $('#boardTriangular5InnerSolution').is(':checked') ? 'boardTriangular5InnerSolution' :
+    $('#boardTriangular6Solution').is(':checked') ? 'boardTriangular6Solution' :
+    $('#boardTriangular6FinalLongSweepSolution').is(':checked') ? 'boardTriangular6FinalLongSweepSolution' :
     $('#boardFrench1Solution').is(':checked') ? 'boardFrench1Solution' :
     $('#boardFrench2Solution').is(':checked') ? 'boardFrench2Solution' :
     '';
@@ -357,6 +359,10 @@ Hmi.prototype.showNext = function() {
       3, 6, 1, 8, 14, 12, 2, 9, 12, 5, 9, 2, 0, 5 ],
     'boardTriangular5InnerSolution': [ 4, 13, 4, 11, 13, 6, 8, 9, 7, 2, 9, 1,
       6, 14, 5, 3, 6, 1, 0, 3, 12, 13, 11, 10, 12 ],
+    'boardTriangular6Solution': [ 3, 0, 3, 6, 1, 15, 6, 5, 0, 3, 10, 12, 3,
+      14, 12, 5, 14, 17, 15, 6, 1, 8, 20, 9, 7, 16, 19, 17, 15 ],
+    'boardTriangular6FinalLongSweepSolution': [ 3, 0, 3, 6, 1, 15, 6, 12, 3, 10,
+      12, 18, 7, 5, 12, 14, 5, 0, 3, 20, 18, 17, 8, 6, 1, 8, 19, 17, 15 ],
     'boardFrench1Solution': [ 11, 1, 11, 3, 5, 17, 4, 0, 10, 30, 17, 4, 32, 30,
       34, 24, 19, 17, 30, 6, 19, 32, 4, 6, 2, 12, 36, 34, 24, 33,
       31, 28, 26, 15, 17, 30, 32, 19, 6, 14, 12, 7, 5, 8, 10, 22,
@@ -381,6 +387,8 @@ Hmi.prototype.getShape = function() {
     $('#boardTriangular5EdgeSolution').is(':checked') ? Common.SHAPETRIANGULAR5 :
     $('#boardTriangular5InnerSolution').is(':checked') ? Common.SHAPETRIANGULAR5 :
     $('#boardTriangular6').is(':checked') ? Common.SHAPETRIANGULAR6 :
+    $('#boardTriangular6Solution').is(':checked') ? Common.SHAPETRIANGULAR6 :
+    $('#boardTriangular6FinalLongSweepSolution').is(':checked') ? Common.SHAPETRIANGULAR6 :
     $('#boardEnglish').is(':checked') ? Common.SHAPEENGLISH :
     $('#boardEnglishSolution').is(':checked') ? Common.SHAPEENGLISH :
     $('#boardEnglishHeartSolution').is(':checked') ? Common.SHAPEENGLISH :
