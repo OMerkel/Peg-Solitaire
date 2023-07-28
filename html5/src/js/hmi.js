@@ -276,7 +276,7 @@ Hmi.prototype.redraw = function() {
 Hmi.prototype.perform = function( n ) {
   var boardState = this.board.getState();
   var id = Common.PEG[boardState.shape].ID[n];
-  // console.log( 'click : ' + n );
+  console.log( 'click : ' + n );
   if (this.board.getPegsLeft() == Common.PEG[boardState.shape].ID.length) {
     this.board.remove( id );
   } else {
@@ -349,8 +349,8 @@ Hmi.prototype.showNext = function() {
       28, 16, 17, 15, 14, 16 ],
     'boardTriangular5CornerSolution': [ 0, 3, 0, 5, 3, 0, 5, 9, 2, 12, 5, 0, 10,
       12, 6, 1, 0, 3, 13, 11, 3, 12, 11, 13, 14, 12 ],
-    'boardTriangular5MidEdgeSolution': [ 3, 5, 3, 0, 5, 13, 4, 11, 13, 14, 12,
-      9, 2, 3, 5, 0, 3, 6, 1, 12, 3, 1, 6, 10, 3 ],
+    'boardTriangular5MidEdgeSolution': [ 3, 0, 3, 6, 1, 5, 3, 1, 6, 14, 5, 2, 9,
+      13, 4, 11, 13, 10, 3, 12, 14, 5, 3 ],
     'boardTriangular5EdgeSolution': [ 1, 6, 1, 12, 3, 10, 12, 1, 6, 9, 7, 12,
       3, 6, 1, 8, 14, 12, 2, 9, 12, 5, 9, 2, 0, 5 ],
     'boardTriangular5InnerSolution': [ 4, 13, 4, 11, 13, 6, 8, 9, 7, 2, 9, 1,
