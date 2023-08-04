@@ -69,3 +69,11 @@ figure.author figcaption {
   border-radius: 0 0 8px 8px;
   margin: 0px;
 }
+
+body {
+  overscroll-behavior: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
