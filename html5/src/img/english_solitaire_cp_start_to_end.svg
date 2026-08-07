@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd" >
 <!--
-Copyright (c) 2023
+Copyright (c) 2023, 2026
 @author Oliver Merkel, Merkel(dot)Oliver(at)web(dot)de.
 All rights reserved.
 
@@ -25,7 +24,7 @@ Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
 <g>
 <circle cx="500" cy="500" r="500" style="stroke-width: 20px; fill-opacity: 1;" fill="#aaaaaa" stroke="#666666"></circle>
 <circle cx="370" cy="110" r="24" style="stroke-width: 3px; fill-opacity: 1;" fill="#333333" stroke="#000000"></circle>
-<circle cx="370" cy="110" r="54" fill="url('#radialGradientSlkl8smxa7')" style="stroke-width: 4px; stroke-opacity: 1; fill-opacity: 1; visibility: visible;" stroke="#000000" filter="url('#Slkl8smxa2')">/</circle>
+<circle cx="370" cy="110" r="54" fill="url('#radialGradientSlkl8smxa7')" style="stroke-width: 4px; stroke-opacity: 1; fill-opacity: 1; visibility: visible;" stroke="#000000" filter="url('#Slkl8smxa2')"></circle>
 <circle cx="500" cy="110" r="24" style="stroke-width: 3px; fill-opacity: 1;" fill="#333333" stroke="#000000"></circle>
 <circle cx="500" cy="110" r="54" fill="url('#radialGradientSlkl8smxa7')" style="stroke-width: 4px; stroke-opacity: 1; fill-opacity: 1; visibility: visible;" stroke="#000000" filter="url('#Slkl8smxa2')"></circle>
 <circle cx="630" cy="110" r="24" style="stroke-width: 3px; fill-opacity: 1;" fill="#333333" stroke="#000000"></circle>
@@ -94,7 +93,7 @@ Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
 <g transform="translate(1030)">
 <circle cx="500" cy="500" r="500" style="stroke-width: 20px; fill-opacity: 1;" fill="#aaaaaa" stroke="#666666"></circle>
 <circle cx="370" cy="110" r="24" style="stroke-width: 3px; fill-opacity: 1;" fill="#333333" stroke="#000000"></circle>
-<circle cx="370" cy="110" r="54" fill="url('#radialGradientSlkl8smxa7')" style="stroke-width: 4px; stroke-opacity: 1; fill-opacity: 1; visibility: hidden;" stroke="#000000" filter="url('#Slkl8smxa2')">/</circle>
+<circle cx="370" cy="110" r="54" fill="url('#radialGradientSlkl8smxa7')" style="stroke-width: 4px; stroke-opacity: 1; fill-opacity: 1; visibility: hidden;" stroke="#000000" filter="url('#Slkl8smxa2')"></circle>
 <circle cx="500" cy="110" r="24" style="stroke-width: 3px; fill-opacity: 1;" fill="#333333" stroke="#000000"></circle>
 <circle cx="500" cy="110" r="54" fill="url('#radialGradientSlkl8smxa7')" style="stroke-width: 4px; stroke-opacity: 1; fill-opacity: 1; visibility: hidden;" stroke="#000000" filter="url('#Slkl8smxa2')"></circle>
 <circle cx="630" cy="110" r="24" style="stroke-width: 3px; fill-opacity: 1;" fill="#333333" stroke="#000000"></circle>

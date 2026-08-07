@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
 <head profile='http://dublincore.org/documents/dcq-html/'>
   <link rel='icon' href='img/icons/favicon.ico' type='image/x-icon' />
   <link rel='schema.DC' href='http://purl.org/dc/elements/1.1/' />
@@ -13,7 +13,7 @@
   <meta name='DC.rights' content="
 See file named LICENSE being part of the repository.
 
-Copyright (c) 2016, 2023
+Copyright (c) 2016, 2026
 @author Oliver Merkel, Merkel(dot)Oliver(at)web(dot)de.
 All rights reserved.
 
@@ -23,7 +23,7 @@ All source code also including code parts written in HMTL, Javascript, CSS is un
 
 The MIT License (MIT)
 
-Copyright (c) 2016, 2023 Oliver Merkel, Merkel(dot)Oliver(at)web(dot)de
+Copyright (c) 2016, 2026 Oliver Merkel, Merkel(dot)Oliver(at)web(dot)de
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the &quot;Software&quot;), to deal in
@@ -52,25 +52,10 @@ If not otherwise stated all graphics (independent of its format) are licensed un
   <link rel='apple-touch-icon' href='img/icons/pegsol128.png' />
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
     name='viewport' />
-  <link rel='stylesheet' type='text/css' href='thirdparty/jquery-ui-1.13.2/jquery-ui.css' />
   <link rel='stylesheet' type='text/css' href='css/index.css' />
-  <script src='thirdparty/jquery-3.7.0.js' type='text/javascript'></script> 
-  <script src='thirdparty/jquery-ui-1.13.2/jquery-ui.js' type='text/javascript'></script>
-  <script src='thirdparty/snap.svg-0.5.1/snap.svg.js' type='text/javascript'></script>
-  <script src='js/common.js' type='text/javascript' defer></script>
-  <script src='js/hmi.js' type='text/javascript' defer></script>
-  <script>
-  $( function() {
-    $( "#tabs" ).tabs();
-    $( "#level" ).selectmenu();
-    $( "input" ).checkboxradio();
-    $( "#accordion" ).accordion({
-      heightStyle: "content"
-    });
-  } );
-  </script>
+  <script src='js/main.js' type='module'></script>
 </head>
-<body class='ui-widget ui-widget-content'>
+<body>
 <div id='game-page'>
       <noscript>
         <p>This HTML5 application depends on enabled Javascript capabilities in your browser.</p>
@@ -84,13 +69,13 @@ If not otherwise stated all graphics (independent of its format) are licensed un
   </ul>
   <div id='tabs-board'>
     <center>
-      <div><svg id='board'></svg></div>
-      <span id='new' class='ui-button ui-widget ui-corner-all'>
+      <div><svg id='board'><title>Peg Solitaire board</title></svg></div>
+      <button id='new' class='app-button' type='button'>
         New
-      </span>
-      <span id='step' class='ui-button ui-widget ui-corner-all' style='visibility: hidden;'>
+      </button>
+      <button id='step' class='app-button is-hidden' type='button'>
         Step
-      </span>
+      </button>
     </center>
   </div><!-- /tabs-board -->
 
@@ -100,44 +85,56 @@ If not otherwise stated all graphics (independent of its format) are licensed un
     <form>
       <fieldset data-role='controlgroup'>
         <legend>Board Shape</legend>
-        <input name='boardShape' id='boardTriangular5'
-          checked='checked' type='radio' />
-        <label for='boardTriangular5'>
-          Triangular 5
-        </label>
-        <input name='boardShape' id='boardTriangular6'
-          type='radio' />
-        <label for='boardTriangular6'>
-          Triangular 6
-        </label>
-        <input name='boardShape' id='boardEnglish'
-          type='radio' />
-        <label for='boardEnglish'>
-          English Solitaire
-        </label>
-        <input name='boardShape' id='boardFrench'
-          type='radio' />
-        <label for='boardFrench'>
-          French Solitaire
-        </label>
+        <div class='radio-option'>
+          <input name='boardShape' id='boardTriangular5'
+            checked='checked' type='radio' />
+          <label for='boardTriangular5'>
+            Triangular 5
+          </label>
+        </div>
+        <div class='radio-option'>
+          <input name='boardShape' id='boardTriangular6'
+            type='radio' />
+          <label for='boardTriangular6'>
+            Triangular 6
+          </label>
+        </div>
+        <div class='radio-option'>
+          <input name='boardShape' id='boardEnglish'
+            type='radio' />
+          <label for='boardEnglish'>
+            English Solitaire
+          </label>
+        </div>
+        <div class='radio-option'>
+          <input name='boardShape' id='boardFrench'
+            type='radio' />
+          <label for='boardFrench'>
+            French Solitaire
+          </label>
+        </div>
         <p style='background: darkred;'><b>Spoiler alert!</b> Here are some solutions to step through:</p>
         <h3>Single vacancy to single survivor challenges</h3>
         <h4>Solving English Solitaire</h4>
         <p>
-          <input name='boardShape' id='boardEnglishSolution'
-            type='radio' />
-          <label for='boardEnglishSolution'>
-            Solve English Solitaire - Castle
-          </label>
-          <input name='boardShape' id='boardEnglishHeartSolution'
-            type='radio' />
-          <label for='boardEnglishHeartSolution'>
-            Solve English Solitaire - Heart
-          </label>
+          <div class='radio-option'>
+            <input name='boardShape' id='boardEnglishSolution'
+              type='radio' />
+            <label for='boardEnglishSolution'>
+              Solve English Solitaire - Castle
+            </label>
+          </div>
+          <div class='radio-option'>
+            <input name='boardShape' id='boardEnglishHeartSolution'
+              type='radio' />
+            <label for='boardEnglishHeartSolution'>
+              Solve English Solitaire - Heart
+            </label>
+          </div>
         </p>
         <p>
           <figure class='diagram' style='float: right;'>
-            <img src='img/english_solitaire_cp_start_to_end.svg' />
+            <img src='img/english_solitaire_cp_start_to_end.svg' alt='English Solitaire complement challenge diagram' />
             <figcaption>Here the single vacancy and single survivor are in same
               centered position (complement challenge)</figcaption>
           </figure>
@@ -156,26 +153,34 @@ If not otherwise stated all graphics (independent of its format) are licensed un
           with <em>just one peg remaining</em> on optimal strategy.
         </p>
         <p>
-          <input name='boardShape' id='boardTriangular5CornerSolution'
-            type='radio' />
-          <label for='boardTriangular5CornerSolution'>
-            Solve Triangular5 - Corner Vacancy
-          </label>
-          <input name='boardShape' id='boardTriangular5MidEdgeSolution'
-            type='radio' />
-          <label for='boardTriangular5MidEdgeSolution'>
-            Solve Triangular5 - Mid Edge Vacancy
-          </label>
-          <input name='boardShape' id='boardTriangular5EdgeSolution'
-            type='radio' />
-          <label for='boardTriangular5EdgeSolution'>
-            Solve Triangular5 - Edge Vacancy
-          </label>
-          <input name='boardShape' id='boardTriangular5InnerSolution'
-            type='radio' />
-          <label for='boardTriangular5InnerSolution'>
-            Solve Triangular5 - Inner Vacancy
-          </label>
+          <div class='radio-option'>
+            <input name='boardShape' id='boardTriangular5CornerSolution'
+              type='radio' />
+            <label for='boardTriangular5CornerSolution'>
+              Solve Triangular5 - Corner Vacancy
+            </label>
+          </div>
+          <div class='radio-option'>
+            <input name='boardShape' id='boardTriangular5MidEdgeSolution'
+              type='radio' />
+            <label for='boardTriangular5MidEdgeSolution'>
+              Solve Triangular5 - Mid Edge Vacancy
+            </label>
+          </div>
+          <div class='radio-option'>
+            <input name='boardShape' id='boardTriangular5EdgeSolution'
+              type='radio' />
+            <label for='boardTriangular5EdgeSolution'>
+              Solve Triangular5 - Edge Vacancy
+            </label>
+          </div>
+          <div class='radio-option'>
+            <input name='boardShape' id='boardTriangular5InnerSolution'
+              type='radio' />
+            <label for='boardTriangular5InnerSolution'>
+              Solve Triangular5 - Inner Vacancy
+            </label>
+          </div>
         </p>
         <p>
           <em>Minor hint:</em> In all solutions of an Triangular5 board never
@@ -192,16 +197,21 @@ If not otherwise stated all graphics (independent of its format) are licensed un
           solutions shown containing such sweeps.
         </p>
         <p>
-          <input name='boardShape' id='boardTriangular6Solution'
-            type='radio' />
-          <label for='boardTriangular6Solution'>
-            Solve Triangular6
-          </label>
-          <input name='boardShape' id='boardTriangular6FinalLongSweepSolution'
-            type='radio' />
-          <label for='boardTriangular6FinalLongSweepSolution'>
-            Solve Triangular6 - Final long sweep
-          </label>
+          <div class='radio-option'>
+            <input name='boardShape' id='boardTriangular6Solution'
+              type='radio' />
+            <label for='boardTriangular6Solution'>
+              Solve Triangular6
+            </label>
+          </div>
+          <div class='radio-option'>
+            <input name='boardShape' id='boardTriangular6FinalLongSweepSolution'
+              type='radio' />
+            <label for='boardTriangular6FinalLongSweepSolution'>
+              Solve Triangular6 - Final long sweep
+            </label>
+          </div>
+        </p>
         <br clear='all' />
         <h4>Solving French Solitaire</h4>
         <p>
@@ -214,16 +224,20 @@ If not otherwise stated all graphics (independent of its format) are licensed un
           180 degrees around the center. 
         </p>
         <p>
-          <input name='boardShape' id='boardFrench1Solution'
-            type='radio' />
-          <label for='boardFrench1Solution'>
-            Solve French Solitaire - Version 1
-          </label>
-          <input name='boardShape' id='boardFrench2Solution'
-            type='radio' />
-          <label for='boardFrench2Solution'>
-            Solve French Solitaire - Version 2
-          </label>
+          <div class='radio-option'>
+            <input name='boardShape' id='boardFrench1Solution'
+              type='radio' />
+            <label for='boardFrench1Solution'>
+              Solve French Solitaire - Version 1
+            </label>
+          </div>
+          <div class='radio-option'>
+            <input name='boardShape' id='boardFrench2Solution'
+              type='radio' />
+            <label for='boardFrench2Solution'>
+              Solve French Solitaire - Version 2
+            </label>
+          </div>
         </p>
       </fieldset>
     </form>
@@ -236,7 +250,7 @@ If not otherwise stated all graphics (independent of its format) are licensed un
         <h3>Rules</h3>
         <div>
     <figure class='diagram' style='float: right;'>
-      <img src='img/jump.svg' />
+      <img src='img/jump.svg' alt='Peg jumping over adjacent peg diagram' />
       <figcaption>Jump with a selected peg over an adjacent peg
         removing it.</figcaption>
     </figure>
@@ -289,19 +303,19 @@ If not otherwise stated all graphics (independent of its format) are licensed un
         <h3>Legal</h3>
         <div>
           <figure class='author' style='float: right;'>
-            <img src='img/oliver-altenahr-230708.jpg' />
+            <img src='img/oliver-altenahr-230708.jpg' alt='Portrait of Oliver Merkel' />
             <figcaption>Oliver Merkel, <a rel='license'
               href='http://creativecommons.org/licenses/by-nc-nd/4.0'
               target='_blank'>cc-by-nc-nd 4.0</a>.</figcaption>
           </figure>
           <br />
-          <p>Copyright (c) 2016, 2023<br />
+          <p>Copyright (c) 2016, 2026<br />
             <b>@author</b> <em>Oliver Merkel</em>, Merkel(dot) Oliver(at) web(dot) de.<br />
             All rights reserved.<br />
             Logos, brands, and trademarks belong to their respective owners.</p>
           <p>All source code also including code parts written in HMTL, Javascript, CSS is under MIT License.</p>
           <h4>The MIT License (MIT)</h4>
-          <p>Copyright (c) 2016, 2023 Oliver Merkel, Merkel(dot) Oliver(at) web(dot)de</p>
+          <p>Copyright (c) 2016, 2026 Oliver Merkel, Merkel(dot) Oliver(at) web(dot)de</p>
 
           <p>Permission is hereby granted, free of charge, to any person obtaining a copy of
           this software and associated documentation files (the &quot;Software&quot;), to deal in
@@ -356,28 +370,10 @@ If not otherwise stated all graphics (independent of its format) are licensed un
             target='_blank' type='text/html'>US 462170 A</a>, Patented Oct. 27, 1891.</li>
       </ul>
         </div>
-        <h3>Third Party Code Licenses</h3>
+        <h3>Runtime Dependencies</h3>
         <div>
-          <p>This <b>Peg Solitaire</b> implementation uses unmodified
-            independent code libraries provided by <em>third parties</em>.
-            Since their licenses might vary the corresponding information is
-            <em>externally linked</em> below. Thus <em>these external links</em>
-            will enable you to reproduce any copyright notice,
-            any related list of conditions, disclaimers, and especially
-            the copyright holders and authors of the corresponding third
-            party functionality.</p>
-          <a href='https://github.com/jquery/jquery' class='ui-button ui-widget ui-corner-all' target='_blank' type='text/html'
-            title='jQuery - Repository'>
-            <img src='thirdparty/jquery-favicon.ico' width='16' height='16' />
-            jQuery: MIT</a>
-          <a href='https://github.com/jquery/jquery-ui' class='ui-button ui-widget ui-corner-all' target='_blank' type='text/html'
-            title='jQuery UI - Repository'>
-            <img src='thirdparty/jquery-ui-1.13.2/jquery-ui-favicon.ico' width='16' height='16' />
-            jQuery UI: MIT</a>
-          <a href='https://github.com/adobe-webplatform/Snap.svg' class='ui-button ui-widget ui-corner-all' target='_blank' type='text/html'
-            title='Snap.svg - Repository'>
-            <img src='thirdparty/snap.svg-0.5.1/snap.svg.favicon.ico' width='16' height='16' />
-            Snap.svg: Apache License V2.0</a>
+          <p>This application does not use third-party runtime JavaScript libraries.</p>
+          <p>The browser runtime depends on standard Web APIs only (DOM, SVG, CSS).</p>
         </div>
       </div><!-- /accordion -->
     </div><!-- /content -->

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.5.7/schema.json",
+  "files": {
+    "includes": [
+      "**",
+      "!**/node_modules",
+      "!**/coverage",
+      "!**/test-results",
+      "!**/html5/src/thirdparty"
+    ]
+  }
+}

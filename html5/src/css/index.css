@@ -1,5 +1,145 @@
+:root {
+  --bg: #121212;
+  --surface: #202020;
+  --surface-strong: #2b2b2b;
+  --text: #f4f4f4;
+  --text-muted: #cbcbcb;
+  --accent: #ff8f1f;
+  --accent-strong: #d96500;
+  --danger: #6f0a0a;
+  --border: #4d4d4d;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background-color: black;
+  margin: 0;
+  background: radial-gradient(circle at top, #212121 0%, var(--bg) 45%);
+  color: var(--text);
+  font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overscroll-behavior: none;
+  user-select: none;
+}
+
+a {
+  color: #ffcc89;
+}
+
+#game-page {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+#tabs > ul {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+}
+
+#tabs > ul a {
+  display: inline-block;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 14px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+#tabs > ul a.is-active {
+  border-color: var(--accent);
+  background: linear-gradient(180deg, var(--accent), var(--accent-strong));
+  color: #111;
+  font-weight: 700;
+}
+
+#tabs > div[id^="tabs-"] {
+  display: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  background: rgba(34, 34, 34, 0.86);
+}
+
+#tabs > div[id^="tabs-"].is-active {
+  display: block;
+}
+
+#tabs-board {
+  text-align: center;
+}
+
+#board {
+  max-width: 100%;
+}
+
+.app-button {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, #3d3d3d, #2b2b2b);
+  color: var(--text);
+  padding: 10px 16px;
+  margin: 8px 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.app-button:hover {
+  border-color: var(--accent);
+}
+
+.is-hidden {
+  display: none;
+}
+
+.radio-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  background: var(--surface);
+  margin: 4px;
+}
+
+.radio-option input[type="radio"] {
+  margin: 0;
+  cursor: pointer;
+}
+
+.radio-option label {
+  margin: 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+#accordion .accordion-header {
+  margin: 8px 0 0;
+  padding: 10px;
+  border-radius: var(--radius);
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+
+#accordion .accordion-panel {
+  display: none;
+  border: 1px solid var(--border);
+  border-top: 0;
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 12px;
+  background: #1f1f1f;
+}
+
+#accordion .accordion-panel.is-open {
+  display: block;
 }
 
 figure.diagram {
@@ -16,24 +156,17 @@ figure.diagram img {
   border: 1px solid #cccccc;
   padding: 4px;
   border-radius: 7px 7px 0 0;
-  margin: 0px;
-}
-
-figure.diagram embed {
-  width: 100%;
-  border: 1px solid #cccccc;
-  padding: 4px;
-  border-radius: 7px 7px 0 0;
-  margin: 0px;
+  margin: 0;
 }
 
 figure.diagram figcaption {
-  background-color: #666; color: #fff;
+  background-color: #666;
+  color: #fff;
   font-style: italic;
   width: 100%;
   padding: 5px;
   border-radius: 0 0 8px 8px;
-  margin: 0px;
+  margin: 0;
 }
 
 figure.author {
@@ -50,30 +183,29 @@ figure.author img {
   border: 1px solid #cccccc;
   padding: 4px;
   border-radius: 7px 7px 0 0;
-  margin: 0px;
-}
-
-figure.author embed {
-  width: 100%;
-  border: 1px solid #cccccc;
-  padding: 4px;
-  border-radius: 7px 7px 0 0;
-  margin: 0px;
+  margin: 0;
 }
 
 figure.author figcaption {
-  background-color: #666; color: #fff;
+  background-color: #666;
+  color: #fff;
   font-style: italic;
   width: 100%;
   padding: 5px;
   border-radius: 0 0 8px 8px;
-  margin: 0px;
+  margin: 0;
 }
 
-body {
-  overscroll-behavior: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+@media (max-width: 960px) {
+  figure.diagram,
+  figure.author {
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 12px;
+  }
+
+  #tabs > ul {
+    flex-wrap: wrap;
+  }
 }
