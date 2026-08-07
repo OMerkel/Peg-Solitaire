@@ -84,7 +84,7 @@ for (const solution of solutions) {
     await expect(stepButton).not.toBeVisible();
 
     // Verify the final peg count matches expected
-    const finalPegs = page.locator(pegLocator + "[style*='visibility: visible']");
+    const finalPegs = page.locator(`${pegLocator}[style*='visibility: visible']`);
     const finalPegCount = await finalPegs.count();
 
     expect(finalPegCount).toBe(

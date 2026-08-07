@@ -395,3 +395,55 @@ integration level (e2e tests), ensuring both correctness and user experience.
 - Add curated solution: add SOLUTIONS entry and link it to a radio id.
 - Add auto-solver strategy: add a separate pure module and inject via
   hmi.js.
+
+## Development Toolchain Baseline
+
+### Runtime & Module System
+
+- **Node.js**: LTS (18+) or current version
+- **Module Format**: ES modules (type: "module" in package.json)
+- **Package Manager**: npm 9.x or later
+
+### Build & Serve Tools
+
+- **http-server** 14.1.1: Static file server for development and e2e testing
+- **biome** 2.5.7: Fast JavaScript/JSON linter and code quality tool
+
+### Testing Framework
+
+- **vitest** 3.2.4: Unit and integration test runner (Vite-native)
+- **@vitest/coverage-v8** 3.2.7: Code coverage reporting
+- **jsdom** 26.1.0: DOM environment for unit tests
+- **@playwright/test** 1.55.0: End-to-end testing framework
+
+### Documentation & Linting
+
+- **markdownlint-cli** 0.49.1: Markdown style validation (enforces 80-char lines)
+
+### Scripts
+
+Run via `npm run <script>`:
+
+- **test**: Run all tests (unit + e2e)
+- **test:unit**: Run unit tests with coverage (97.77% target)
+- **test:unit:watch**: Watch mode for development
+- **test:e2e**: Run Playwright e2e tests
+- **test:e2e:ui**: E2E tests with browser UI
+- **lint**: Run all linters (markdown + biome)
+- **lint:md**: Markdown linting
+- **lint:biome**: JavaScript/JSON code quality
+
+### Quality Gates
+
+- **Test Coverage**: 97.77% (board.js, common.js, solver.js at 100%)
+- **Code Quality**: Biome linting (enforces consistent style)
+- **Documentation**: Markdown linting (80-character line limit)
+- **E2E Coverage**: All 10 solutions validated end-to-end
+
+### Configuration Files
+
+- **package.json**: Dependencies and npm scripts
+- **vitest.config.js**: Unit test configuration with JSDOM environment
+- **playwright.config.js**: E2E test configuration (localhost:4173)
+- **biome.json**: Linter rules and file exclusions
+- **.markdownlintignore**: Markdown linting exclusions

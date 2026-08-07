@@ -10,7 +10,6 @@ import {
   countPegs,
   createBoardState,
   getLegalMovesFrom,
-  hasPeg,
   removeInitialPeg,
 } from "./board.js";
 import { getSolutionLength, getSolutionStep, solutionNames } from "./solver.js";
@@ -194,23 +193,6 @@ export const initHmi = () => {
   const selectPegIfMovable = (pegId) => {
     const hasMoves = getLegalMovesFrom(boardState, pegId).length > 0;
     selectedPegId = hasMoves ? pegId : null;
-  };
-
-  const applyIfValidJump = (toPegId) => {
-    if (selectedPegId === null) {
-      return false;
-    }
-
-    const legalMoves = getLegalMovesFrom(boardState, selectedPegId);
-    const selectedMove = legalMoves.find((move) => move.to === toPegId);
-    if (!selectedMove) {
-      return false;
-    }
-
-    boardState = applyMove(boardState, selectedMove);
-    // Do NOT clear selection here - allow multi-jump sequences
-    // Selection will be cleared when the next solution step selects a new peg
-    return true;
   };
 
   const performByIndex = (index) => {
