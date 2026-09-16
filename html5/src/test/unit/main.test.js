@@ -51,6 +51,8 @@ const setupMainDomWithBrokenAccordion = () => {
       <div id="tabs-options"></div>
       <div id="tabs-about">
         <div id="accordion">
+          <h3>Rules</h3>
+          <div>First</div>
           <h3>Missing panel</h3>
         </div>
       </div>
@@ -93,9 +95,15 @@ describe("main bootstrap", () => {
 
     expect(firstPanel?.classList.contains("is-open")).toBe(true);
 
+    headers[0].dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    expect(firstPanel?.classList.contains("is-open")).toBe(false);
+
     headers[1].dispatchEvent(new MouseEvent("click", { bubbles: true }));
     expect(firstPanel?.classList.contains("is-open")).toBe(false);
     expect(secondPanel?.classList.contains("is-open")).toBe(true);
+
+    headers[1].dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    expect(secondPanel?.classList.contains("is-open")).toBe(false);
   });
 
   it("does not fail when accordion container is absent", async () => {
@@ -114,7 +122,9 @@ describe("main bootstrap", () => {
 
     document.dispatchEvent(new Event("DOMContentLoaded"));
 
-    const header = document.querySelector("#accordion > h3");
-    expect(header?.classList.contains("accordion-header")).toBe(false);
+    const headers = document.querySelectorAll("#accordion > h3");
+    expect(headers[1]?.classList.contains("accordion-header")).toBe(false);
+
+    headers[0]?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
   });
 });

@@ -34,7 +34,7 @@ The architecture favors the following properties.
   Supports 10 curated solutions across 4 board types.
 - html5/src/js/common.js: immutable constants and shared shape metadata.
 - html5/src/css/index.css: responsive styling and UI component themes.
-- html5/src/test/unit/: unit tests for all modules (27 tests, 97.77% coverage).
+- html5/src/test/unit/: unit tests for all modules (28 tests, 100% coverage).
 - html5/src/test/e2e/: end-to-end tests for user workflows (13 tests
   covering application and all 10 solutions).
 
@@ -336,7 +336,7 @@ erDiagram
 The project employs a two-tier testing approach to ensure correctness
 across domain logic and user workflows.
 
-### Unit Tests (27 tests, 97.77% coverage)
+### Unit Tests (28 tests, 100% coverage)
 
 Located in `html5/src/test/unit/`, these tests validate pure functions and
 deterministic behaviors:
@@ -346,7 +346,7 @@ deterministic behaviors:
 - **common.test.js** (3 tests): Shape metadata, PEG_SETS consistency
 - **solver.test.js** (4 tests): Solution data integrity, step access
   functions
-- **hmi.test.js** (8 tests): UI orchestration, button visibility, selection
+- **hmi.test.js** (9 tests): UI orchestration, button visibility, selection
   logic
 - **main.test.js** (5 tests): Module initialization and bootstrap
 
@@ -407,14 +407,14 @@ integration level (e2e tests), ensuring both correctness and user experience.
 ### Build & Serve Tools
 
 - **http-server** 14.1.1: Static file server for development and e2e testing
-- **biome** 2.5.7: Fast JavaScript/JSON linter and code quality tool
+- **biome** 2.5.14: Fast JavaScript/JSON linter and code quality tool
 
 ### Testing Framework
 
-- **vitest** 3.2.4: Unit and integration test runner (Vite-native)
-- **@vitest/coverage-v8** 3.2.7: Code coverage reporting
+- **vitest** 5.0.1: Unit and integration test runner (Vite-native)
+- **@vitest/coverage-v8** 5.0.1: Code coverage reporting
 - **jsdom** 26.1.0: DOM environment for unit tests
-- **@playwright/test** 1.55.0: End-to-end testing framework
+- **@playwright/test** 1.63.0: End-to-end testing framework
 
 ### Documentation & Linting
 
@@ -425,7 +425,7 @@ integration level (e2e tests), ensuring both correctness and user experience.
 Run via `npm run <script>`:
 
 - **test**: Run all tests (unit + e2e)
-- **test:unit**: Run unit tests with coverage (97.77% target)
+- **test:unit**: Run unit tests with coverage (94% branch target)
 - **test:unit:watch**: Watch mode for development
 - **test:e2e**: Run Playwright e2e tests
 - **test:e2e:ui**: E2E tests with browser UI
@@ -435,7 +435,7 @@ Run via `npm run <script>`:
 
 ### Quality Gates
 
-- **Test Coverage**: 97.77% (board.js, common.js, solver.js at 100%)
+- **Test Coverage**: 100% statements, branches, functions, and lines
 - **Code Quality**: Biome linting (enforces consistent style)
 - **Documentation**: Markdown linting (80-character line limit)
 - **E2E Coverage**: All 10 solutions validated end-to-end

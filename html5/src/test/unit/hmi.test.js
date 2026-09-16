@@ -86,6 +86,27 @@ describe("hmi interactions", () => {
     expect(after).toBe(before - 1);
   });
 
+  it("uses the default shape when no board radio is selected", () => {
+    document.querySelectorAll("input[name='boardShape']").forEach((input) => {
+      input.checked = false;
+      input.removeAttribute("checked");
+    });
+
+    document.querySelector("#new")?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+
+    expect(document.querySelectorAll("#board circle[fill='#d45a12']")).toHaveLength(15);
+    expect(document.querySelector("#step")?.classList.contains("is-hidden")).toBe(true);
+
+    const boardRadio = document.querySelector("input[name='boardShape']");
+    if (boardRadio) {
+      boardRadio.id = "unknownBoard";
+      boardRadio.checked = true;
+    }
+    document.querySelector("#new")?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+
+    expect(document.querySelectorAll("#board circle[fill='#d45a12']")).toHaveLength(15);
+  });
+
   it("updates board size on resize", () => {
     Object.defineProperty(window, "innerWidth", { value: 640, configurable: true });
     Object.defineProperty(window, "innerHeight", { value: 900, configurable: true });
