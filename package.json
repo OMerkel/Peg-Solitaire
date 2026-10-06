@@ -21,5 +21,10 @@
     "jsdom": "^26.1.0",
     "markdownlint-cli": "^0.49.1",
     "vitest": "^5.0.1"
+  },
+  "overrides": {
+    "js-yaml": "^5.4.1",
+    "katex": "^0.18.2",
+    "smol-toml": "^1.9.0"
   }
 }
